@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="Capture.PNG">
+    <link rel="stylesheet" href="demo.css">
+    <title>MoTaha •Login•</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+    <body>
+        <!-- header design -->
+         <header class="header">
+            <a href="#" class="logo"> Demo <span class="animate" style="--i:1;"></span></a>
+            <div class="bx bx-menu" id="menu-icon">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+    
+            <nav class="navbar">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Courses</a>
+                <a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="UIbtn"><a href="index.html">Log In</a></button>
+    
+                <span class="active-nav"></span>
+                <span class="animate" style="--i:2;"></span>
+            </nav>
+         </header>
+</body>
+<body>
+    <script>
+     function LoginUser(event)
+    {
+        event.preventDefault();
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    google.script.run.withSuccessHandler(function(output) 
+    {
+      if(output == 'TRUE')
+      {
+         var url1 ='https://biohs.github.io/Home';
+         var winRef = window.open(url1);
+         winRef ? google.script.host.close() : window.onload=function(){document.getElementById('url').href = url1;}    
+      }
+      else if(output == 'FALSE')
+      {
+        document.getElementById("errorMessage").innerHTML = "Email or password incorrect";  
+        return false; // to prevent default form submission behavior   
+      }    
+    }).checkLogin(email, password);
+    }
+    
+function function1(){
+    document.getElementById("login_box").className = "login-box-off";
+}
+ 
+function function3(){ 
+  document.getElementById("login_box").className = "login_box"; 
+}
+
+  </script>
+  <style>
+    /*page1*/
+    @media (max-width: 430px) {
+        .jnc1_class1-off{
+            display: none;
+        }
+    }
+  </style>
+     <!--login-->
+    <section>
+    <div class="login-box" id="login_box">
+        <form action="">
+            <h2>Login</h2>
+            <div id="errorMessage"></div> <!-- Error message element -->
+            <!-- Rest of the login form -->
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" id="password" required>
+                <br><span id="errorMessage" style="color: red;"></span>
+                <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">remember me</label>
+                <a href="Fpassword.html">Forgot Password?</a>
+            </div>
+            <input type="submit" class="Login-button" value="Login" onclick="LoginUser()" id="login-btn"/>
+            <div class="register-link">
+                <p>Don't have an account?<a href="Register.html">  Register</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>
