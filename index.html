@@ -34,9 +34,27 @@
     function LoginUser(event) {
         event.preventDefault();
 
-        var email = document.getElementById("email").value = '';
-        var password = document.getElementById("password").value ='';
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+           if (email === '' || password === '') {
+        // Display an error message for empty email or password
+        alert('Email and password are required.');
+    } else {
+        // Proceed with the server call
+        google.script.run.withSuccessHandler(handleLoginResponse).checkLogin(email, password);
+    }
+}
 
+function handleLoginResponse(response) {
+    // Check if the response contains an error message
+    if (response.error) {
+        // Display the error message to the user
+        alert(response.error);
+    } else {
+        // Handle successful login
+        // You can redirect the user to another page or perform any other action here
+    }
+}
         google.script.run.withSuccessHandler(function(output) {
             if(output == 'TRUE') {
                 window.location.href = 'https://biohs.github.io/Home';
