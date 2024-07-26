@@ -34,8 +34,8 @@
     function LoginUser(event) {
         event.preventDefault();
 
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value = '';
+        var password = document.getElementById("password").value ='';
 
         google.script.run.withSuccessHandler(function(output) {
             if(output == 'TRUE') {
