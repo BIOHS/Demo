@@ -30,6 +30,19 @@
          </header>
 </body>
 <body>
+    /* jjjj */
+    <script>
+    function checkLogin(email, password) {
+    // Perform your validation logic here
+    if (email !== 'example@email.com' || password !== 'password123') {
+        return { error: 'Incorrect email or password. Please try again.' };
+    }
+
+    // If login is successful, you can proceed with further logic
+    // For example, you can authenticate the user and return a success message or user information
+    return { success: 'Login successful. Welcome!' };
+}
+    </script>
     <script>
     function LoginUser(event) {
         event.preventDefault();
