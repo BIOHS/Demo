@@ -42,6 +42,16 @@
     // For example, you can authenticate the user and return a success message or user information
     return { success: 'Login successful. Welcome!' };
 }
+    function handleLoginResponse(response) {
+    if (response.error) {
+        // Display the error message to the user
+        alert(response.error);
+    } else {
+        // Handle successful login
+        // You can redirect the user to another page or perform any other action here
+    }
+}
+
     </script>
     <script>
     function LoginUser(event) {
